@@ -26,17 +26,17 @@ public class Baitoan4 {
         }
         return true;
     }
-    public static int mangprime(int a[]) {
+    public static void mangprime(int a[],int sizeOfArrPrime) {
         // so nguyen n < 2 khong phai la so nguyen to
-        int n = 1000000000;
-        int s=0,dem=0;
-        for(int i=2;i<=n;i++){
-            if(isPrime(i)== true){
+        int dem = 0;
+        int i = 2;
+        while(dem < sizeOfArrPrime){
+            if(isPrime(i)){
                 a[dem] = i;
                 dem++;
             }
+            i++;
         }
-       return dem;
     }
     public static void main(String[] args) {
          // TODO code application logic here
@@ -49,13 +49,20 @@ public class Baitoan4 {
             a[i] = sc.nextInt();
         }
         int S=0;
-        int Sprime[] = new int[1000000];
-        int m = mangprime(Sprime);
+        int Sprime[] = new int[n];
+        mangprime(Sprime,n);
         for(int i =0;i<n;i++)
         {
-            S+= isPrime(a[i])?a[i]+Sprime[i]-i:a[i];
+            if (isPrime(a[i])){
+                S+= a[i] + Sprime[i] - (i);
+            }
+            else S+=a[i];
+//            S+= isPrime(a[i])?(a[i]+Sprime[i]-i):a[i];
+           // System.out.print(S);
+            //System.out.print(" ");
         }
+         System.out.println();
         System.out.println("KET QUA : ");
         System.out.println(S);
     }
-    
+} 
