@@ -1,0 +1,50 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package baitoan2;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author cuong
+ */
+public class Baitoan2 {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        Scanner sc = new Scanner(System.in);
+        int n;
+       n= sc.nextInt();
+       int a[] = new int[n];
+       for(int i=0;i<n;i++){
+           a[i] = sc.nextInt();
+       }
+      for(int i=0;i<n-1;i++)
+      for(int j=i+1;j<n;j++){
+          if(a[i] > a[j]){
+          int tg = a[i];
+          a[i] = a[j];
+          a[j] = tg;
+          }
+      }
+      System.out.println("sap xep theo chieu tang dan : ");
+      for(int i=0;i<n;i++){
+        System.out.print(a[i]);
+        System.out.print(" ");
+    }
+      System.out.println();
+      System.out.print("so be nhat : ");
+      System.out.print(a[0]);
+      System.out.println();
+      System.out.print("so lon nhat : ");
+      System.out.print(a[n-1]);
+       System.out.println();
+    }
+    
+}
