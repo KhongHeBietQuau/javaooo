@@ -1,0 +1,45 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package baitoan6;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author cuong
+ */
+public class BaiToan6 {
+
+    
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        Scanner sc= new Scanner(System.in);
+        String str=sc.nextLine();
+        str=chuan(str);
+        str = chuan(str);
+        System.out.println(str);
+    }
+    public static String Hoa(String str) {
+        str = str.trim();
+        str = str.replaceAll("\\s+", " ");
+        return str;
+    }
+ 
+    public static String chuan(String str) {
+        str = Hoa(str);
+        String temp[] = str.split(" ");
+        str = ""; 
+        for (int i = 0; i < temp.length; i++) {
+            str += String.valueOf(temp[i].charAt(0)).toUpperCase() + temp[i].substring(1);
+            if (i < temp.length - 1) // ? ^-^
+                str += " ";
+        }
+        return str;
+    }
+    
+}
