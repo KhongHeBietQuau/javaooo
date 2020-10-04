@@ -1,0 +1,117 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package baitoan3;
+import java.util.Scanner;
+
+/**
+ *
+ * @author cuong
+ */
+public class BaiToan3 {
+
+    public static void show(int a[],int n){
+       for(int i=0;i<n;i++){
+          System.out.print(a[i]);
+          System.out.print(" ");
+       } 
+    }
+    public static void chen(int a[],int n,int k,int m){
+       for(int i=n;i>k;i--){
+           a[i] = a[i-1];
+       }
+       n++;
+       a[k] = m;
+      System.out.println("mang sau khi chen :");
+      for(int i=0;i<n;i++){
+          System.out.print(a[i]);
+          System.out.print(" ");
+      }
+    }
+    public static void xoa(int a[],int n,int k){
+      for(int i=k;i<n-1;i++){
+          a[k] = a[k+1];
+      } 
+      n--;
+      System.out.println("mang vua xoa :");
+      for(int i=0;i<n;i++){
+          System.out.print(a[i]);
+          System.out.print(" ");
+      }
+      System.out.println();
+    }
+    public static void daomang(int a[],int n){
+      int b[] = new int[n];
+      int dem =0;
+      for(int i=0;i<n;i++){
+          b[dem] = a[i];
+          dem++;
+      }
+      System.out.println("mang sau khi dao :");
+      for(int i=0;i<dem;i++){
+          System.out.print(b[i]);
+          System.out.print(" ");
+      }
+    }
+    public static void l5(int a[],int n){
+      System.out.print("phan tu a[1] = ");
+      System.out.println(a[0]);
+      System.out.println("cac phan tu chia het cho a[1] : ");
+      for(int i=1;i<n;i++)
+          if(a[i]%a[0]==0){
+              System.out.print(a[i]);
+              System.out.print(" ");
+          }
+    }
+    public static void main(String[] args) {
+        // TODO code application logic here
+        Scanner sc = new Scanner(System.in);
+        System.out.println("nhap phan tu cua mang :");
+        int n = sc.nextInt();
+        int a[] = new int[n+5];
+        System.out.println("nhap mang :");
+        for(int i=0;i<n;i++){
+            a[i] = sc.nextInt();
+        }
+        while(true){
+            System.out.println();
+          System.out.println("mo nhap 1 lua chon :");
+          System.out.println("1. HIEN THI MANG VUA NHAP ");
+          System.out.println("2.CHEN 1 PHAN TU VAO VI TRI THU K :");
+          System.out.println("3.XOA 1 PHAN TU KHOI MANG ");
+          System.out.println("4.DAO NGUOC MANG :");
+          System.out.println("5.HIEN THI A[0] VA CAC PHAN THU CHIA HET CHO A[0]");
+          System.out.println("6.THOAT :");
+        int luachon = sc.nextInt();
+        if(luachon == 1){
+        System.out.print("xuat mang :");
+        show(a,n);
+        System.out.println();
+        }
+        if(luachon == 2){
+        System.out.print("chi so id can thay (id>=0 va id<n) :");
+        int k = sc.nextInt();
+        System.out.print("gia tri can nhap :");
+        int y = sc.nextInt();
+        chen(a,n,k,y);
+        }
+        if(luachon ==3){
+            System.out.print("chi so id can xoa (id>=0 va id<n) :");
+            int id = sc.nextInt();
+            xoa(a,n,id);
+        }
+        if(luachon==4){
+        daomang(a,n);
+    }
+        if(luachon == 5){
+            l5(a,n);
+        }
+        if(luachon==6){
+           break; 
+        }
+        }
+    }
+}
+
