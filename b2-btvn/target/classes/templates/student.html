@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Tieu De</title>
+<style>
+    table, th, td {
+        border: 1px solid black;
+    }
+</style>
+</head>
+<body>
+	<h1 th:text="${name}"></h1>
+	<table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Address</th>
+        </tr>
+        <tr th:each = "x : ${list}">
+            <td th:text ="${x.ID}"></td>
+            <td th:text ="${x.Name}"></td>
+            <td th:text ="${x.Email}"></td>
+            <td th:text ="${x.Address}"></td>
+        </tr>
+        
+    </table>
+</body>
+</html>
