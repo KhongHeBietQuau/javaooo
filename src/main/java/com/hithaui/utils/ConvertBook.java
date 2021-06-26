@@ -1,28 +1,30 @@
 package com.hithaui.utils;
 
-import com.hithaui.dao.BookDAO;
-import com.hithaui.dto.BookDTO;
+
+import com.hithaui.dao.BookUpDAO;
+import com.hithaui.dto.BookUpDTO;
 
 public class ConvertBook {
-	public static BookDAO fromDAO(BookDTO bookDTO)
+	public static BookUpDAO fromDAO(BookUpDTO bookDTO)
 	{
-		BookDAO bookDAO = new BookDAO();
-		bookDAO.setAuthor(bookDTO.getAuthor());
-		bookDAO.setLanguage(bookDTO.getLanguage());
-		bookDAO.setLinkBook(bookDTO.getLinkBook());
-		bookDAO.setNameBook(bookDTO.getNameBook());
+		BookUpDAO bookUpDAO = new BookUpDAO();
+		bookUpDAO.setAuthor(bookDTO.getAuthor());
+		bookUpDAO.setLanguage(bookDTO.getLanguage());
+		bookUpDAO.setLinkBook(bookDTO.getLinkBook());
+		bookUpDAO.setNameBook(bookDTO.getNameBook());
 		if(bookDTO.getNumberOfPages()!=null)
-		bookDAO.setNumberOfPages(bookDTO.getNumberOfPages());
+		bookUpDAO.setNumberOfPages(bookDTO.getNumberOfPages());
 		else {
-			bookDAO.setNumberOfPages(0);
+			bookUpDAO.setNumberOfPages(0);
 		}
-		bookDAO.setPublishingCompany(bookDTO.getPublishingCompany());
-		bookDAO.setStatusBook(bookDTO.getStatus());
-		bookDAO.setViewBook(0);
-		bookDAO.setLikeBook(0);
-		bookDAO.setPriceBook(bookDTO.getPrice());
-		bookDAO.setContentBook(bookDTO.getContent());
-		bookDAO.setDescribeBook(bookDTO.getDescribe());
-		return bookDAO;
+		bookUpDAO.setPublishingCompany(bookDTO.getPublishingCompany());
+		bookUpDAO.setStatusBook(bookDTO.getStatus());
+		bookUpDAO.setViewBook(bookDTO.getView());
+		bookUpDAO.setLikeBook(bookDTO.getLike());
+		bookUpDAO.setPriceBook(bookDTO.getPrice());
+		bookUpDAO.setContentBook(bookDTO.getContent());
+		bookUpDAO.setDescribeBook(bookDTO.getDescribe());
+		bookUpDAO.setClassify(0);
+		return bookUpDAO;
 	}
 }
